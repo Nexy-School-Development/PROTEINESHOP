@@ -2,6 +2,8 @@
 
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/products', [ProductController::class, 'index'])->name('products');
 
-
-
-Route::get('/', function () {
-    $products = Product::all();
-    return view('products', compact('products'));
-});
-
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');

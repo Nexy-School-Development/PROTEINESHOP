@@ -16,9 +16,40 @@
                     <h2 class="text-xl font-bold">{{ $product->name }}</h2>
                     <p>{{ $product->description }}</p>
                     <p class="text-lg font-semibold">${{ $product->price }}</p>
+                    <div class="Products">
+                        <div class="flex items-center mt-2">
+                            <button class="bg-gray-300 text-gray-700 px-2 py-1" onclick="decrementAmount({{ $product->id }})">-</button>
+                            <input type="number" id="amount-{{ $product->id }}" name="amount" class="mx-2 border text-center w-16" value="1" min="1">
+                            <button class="bg-gray-300 text-gray-700 px-2 py-1" onclick="incrementAmount({{ $product->id }})">+</button>
+                        </div>
+                        <form action="{{ route('cart.add', ['id' => $product->id]) }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <input type="hidden" id="amount-input-{{ $product->id }}" name="amount" value="1">
+                            <button type="submit" class="bg-green-500 w-8 h-8 mt-2" style="background-image: url('../public/Media/Images/shop.svg');"></button>
+                        </form>
+                    </div>
                 </div>
             @endforeach
         </div>
     </div>
+
+    <script>
+        function decrementAmount(productId) {
+            var amountInput = document.getElementById('amount-' + productId);
+            var currentValue = parseInt(amountInput.value);
+            if (currentValue > 1) {
+                amountInput.value = currentValue - 1;
+                document.getElementById('amount-input-' + productId).value = amountInput.value;
+            }
+        }
+
+        function incrementAmount(productId) {
+            var amountInput = document.getElementById('amount-' + productId);
+            var currentValue = parseInt(amountInput.value);
+            amountInput.value = currentValue + 1;
+            document.getElementById('amount-input-' + productId).value = amountInput.value;
+        }
+    </script>
 </body>
 </html>
