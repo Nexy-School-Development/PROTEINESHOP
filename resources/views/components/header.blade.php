@@ -1,5 +1,5 @@
 <header>
     <nav>
-        <a href="auth.login">Login</a>
+        <a href="login">Login</a>
     </nav>
 </header>

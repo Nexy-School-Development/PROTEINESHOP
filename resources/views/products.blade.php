@@ -20,7 +20,9 @@
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
                             <input type="hidden" id="amount-input-{{ $product->id }}" name="amount" value="1">
-                            <button type="submit" class="bg-green-500 w-8 h-8 mt-2" style="background-image: url('../public/Media/Images/shop.svg');"></button>
+                            <button type="submit" class="mt-2">
+                                <img src="{{ asset('Media/Images/shop.svg') }}" alt="Add to Cart" class="w-8 h-8">
+                            </button>
                         </form>
                     </div>
                 </div>
