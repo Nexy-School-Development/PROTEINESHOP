@@ -43,6 +43,21 @@
                             </td>
                         </tr>
                     @endforeach
+                <tr>
+                    <td colspan="3"></td>
+                    <td class="py-2 font-bold">Total Price:</td>
+                    <td class="py-2 font-bold">${{ array_sum(array_map(function($item) { return $item['price'] * $item['quantity']; }, $cart)) }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="6" class="text-right">
+                        <form action="{{ route('checkout') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="total" value="{{ array_sum(array_map(function($item) { return $item['price'] * $item['quantity']; }, $cart)) }}">
+                            <button type="submit" class="bg-green-500 text-white px-4 py-2">Pays</button>
+                        </form>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         @else
