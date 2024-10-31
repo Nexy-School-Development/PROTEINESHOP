@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Productcontroller;
 use App\Models\Product;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -19,7 +19,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 
-Route::get('/products', [ProductController::class, 'index'])->name('products');
+Route::get('/products', [Productcontroller::class, 'index'])->name('products');
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
@@ -31,12 +31,13 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $products = Product::all();
+    return view('dashboard', compact('products'));
 })->middleware(['auth', 'role:admin'])->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return view('user-dashboard');
-})->middleware(['auth', 'role:user'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('user-dashboard');
+// })->middleware(['auth', 'role:user'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -44,4 +45,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
