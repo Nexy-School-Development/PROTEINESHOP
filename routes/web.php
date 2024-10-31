@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Productcontroller;
 use App\Http\Controllers\CheckoutController;
 use App\Models\Product;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -20,7 +20,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 
-Route::get('/products', [ProductController::class, 'index'])->name('products');
+Route::get('/products', [Productcontroller::class, 'index'])->name('products');
 
 Route::get('/checkout', function () {
     return view('checkout');
@@ -38,12 +38,13 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $products = Product::all();
+    return view('dashboard', compact('products'));
 })->middleware(['auth', 'role:admin'])->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return view('user-dashboard');
-})->middleware(['auth', 'role:user'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('user-dashboard');
+// })->middleware(['auth', 'role:user'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

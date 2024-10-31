@@ -1,10 +1,10 @@
 @extends('components.layout')
 
-    <x-header/>
-    @section('content')
+<x-header />
+@section('content')
     <div class="container mx-auto p-4">
         <div class="grid grid-cols-3 gap-4">
-            @foreach($products as $product)
+            @foreach ($products as $product)
                 <div class="border p-4">
                     <img src="{{ $product->image }}" alt="{{ $product->name }}" class="w-full h-48 object-cover">
                     <h2 class="text-xl font-bold">{{ $product->name }}</h2>
@@ -12,9 +12,12 @@
                     <p class="text-lg font-semibold">${{ $product->price }}</p>
                     <div class="Products">
                         <div class="flex items-center mt-2">
-                            <button class="bg-gray-300 text-gray-700 px-2 py-1" onclick="decrementAmount({{ $product->id }})">-</button>
-                            <input type="number" id="amount-{{ $product->id }}" name="amount" class="mx-2 border text-center w-16" value="1" min="1">
-                            <button class="bg-gray-300 text-gray-700 px-2 py-1" onclick="incrementAmount({{ $product->id }})">+</button>
+                            <button class="bg-gray-300 text-gray-700 px-2 py-1"
+                                onclick="decrementAmount({{ $product->id }})">-</button>
+                            <input type="number" id="amount-{{ $product->id }}" name="amount"
+                                class="mx-2 border text-center w-16" value="1" min="1">
+                            <button class="bg-gray-300 text-gray-700 px-2 py-1"
+                                onclick="incrementAmount({{ $product->id }})">+</button>
                         </div>
                         <form action="{{ route('cart.add', ['id' => $product->id]) }}" method="POST">
                             @csrf
@@ -47,6 +50,7 @@
             document.getElementById('amount-input-' + productId).value = amountInput.value;
         }
     </script>
-</body>
-</html>
+    </body>
+
+    </html>
 @endsection
