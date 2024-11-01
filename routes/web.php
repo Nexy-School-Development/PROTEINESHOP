@@ -19,9 +19,6 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-
-Route::get('/products', [Productcontroller::class, 'index'])->name('products');
-
 Route::get('/checkout', function () {
     return view('checkout');
 })->name('checkout');
@@ -36,6 +33,12 @@ Route::get('/', function () {
     $products = Product::all();
     return view('products', compact('products'));
 });
+
+Route::get('/products', function () {
+    return view('products');
+})->name('products');
+
+Route::resource('products', Productcontroller::class);
 
 Route::get('/dashboard', function () {
     $products = Product::all();
@@ -52,4 +55,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

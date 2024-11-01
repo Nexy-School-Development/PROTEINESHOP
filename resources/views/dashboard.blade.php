@@ -20,7 +20,7 @@
                     <div class="container mx-auto p-4">
                         <div class="grid grid-cols-3 gap-4">
                             @foreach ($products as $product)
-                                <div class="border p-4">
+                                <div class="border p-4 group">
                                     <img src="{{ $product->image }}" alt="{{ $product->name }}"
                                         class="w-full h-48 object-cover">
                                     <h2 class="text-xl font-bold">{{ $product->name }}</h2>
@@ -35,15 +35,18 @@
                                             <button class="bg-gray-300 text-gray-700 px-2 py-1"
                                                 onclick="incrementAmount({{ $product->id }})">+</button>
                                         </div>
-                                        <form action="{{ route('cart.add', ['id' => $product->id]) }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                            <input type="hidden" id="amount-input-{{ $product->id }}" name="amount"
-                                                value="1">
-                                            <a href="{{ route('products.edit', $product->id) }}"
-                                                class="text-xl text-center border-2 uppercase font-bold p-2 hidden group-hover:inline-block">Edit
-                                                product</a>
-                                        </form>
+                                        <div>
+                                            <form action="{{ route('cart.add', ['id' => $product->id]) }}"
+                                                method="POST">
+                                                @csrf
+                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                <input type="hidden" id="amount-input-{{ $product->id }}"
+                                                    name="amount" value="1">
+                                                <a href="{{ route('products.edit', $product->id) }}"
+                                                    class="text-xl text-center border-2 uppercase font-bold p-2 hidden group-hover:inline-block ">Edit
+                                                    product</a>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach

@@ -36,7 +36,7 @@ class Productcontroller extends Controller
         $product->price = $request->input('price');
         $product->save();
 
-        return redirect()->route('products.index')->with('success', 'product successfully created!');
+        return redirect()->route('/dashboard')->with('success', 'product successfully created!');
     }
 
     /**
@@ -75,7 +75,7 @@ class Productcontroller extends Controller
 
         $product->save();
 
-        return redirect()->route('products.index')->with('success', 'product successfully updated!');
+        return redirect()->route('dashboard')->with('success', 'product successfully updated!');
     }
 
     public function destroy(product $product)
@@ -83,6 +83,6 @@ class Productcontroller extends Controller
         $product = product::find($product->id);
         $product->delete();
 
-        return redirect()->route('products.index')->with('success', 'product successfully deleted!');
+        return redirect()->route('dashboard')->with('success', 'product successfully deleted!');
     }
 }
