@@ -37,14 +37,11 @@ Route::get('/', function () {
     return view('products', compact('products'));
 });
 
-<<<<<<< Updated upstream
 Route::get('/products', function () {
     return view('products');
 })->name('products');
 
 Route::resource('products', Productcontroller::class);
-=======
->>>>>>> Stashed changes
 
 Route::get('/dashboard', function () {
     $products = Product::all();
