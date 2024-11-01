@@ -22,8 +22,11 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::get('/checkout', function () {
     return view('checkout');
 })->name('checkout');
-
 Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
+Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
+
+Route::post('/paid', [CheckoutController::class, 'paid'])->name('checkout.paid');
+
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
@@ -34,11 +37,14 @@ Route::get('/', function () {
     return view('products', compact('products'));
 });
 
+<<<<<<< Updated upstream
 Route::get('/products', function () {
     return view('products');
 })->name('products');
 
 Route::resource('products', Productcontroller::class);
+=======
+>>>>>>> Stashed changes
 
 Route::get('/dashboard', function () {
     $products = Product::all();

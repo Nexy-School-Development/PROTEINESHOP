@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -34,16 +33,23 @@ class CartController extends Controller
         Session::put('cart', $cart);
         return redirect()->route('products')->with('success', 'Product added to cart!');
     }
-    
-    public function remove(Request $request, $id)
+
+    public function update(Request $request)
     {
         $cart = Session::get('cart', []);
+        $id = $request->input('product_id');
+        $amount = $request->input('amount');
 
-        if (isset($cart[$id])) {
-            unset($cart[$id]);
-            Session::put('cart', $cart);
+        if ($request->action == 'remove') {
+            if (isset($cart[$id])) {
+                $cart[$id]['quantity'] -= $amount;
+                if ($cart[$id]['quantity'] <= 0) {
+                    unset($cart[$id]);
+                }
+            }
         }
 
-        return redirect()->route('cart')->with('success', 'Product removed from cart!');
+        Session::put('cart', $cart);
+        return redirect()->route('cart')->with('success', 'Product quantity updated successfully.');
     }
 }

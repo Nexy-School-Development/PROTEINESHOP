@@ -12,11 +12,11 @@
                     <p class="text-lg font-semibold">${{ $product->price }}</p>
                     <div class="Products">
                         <div class="flex items-center mt-2">
-                            <button class="bg-gray-300 text-gray-700 px-2 py-1"
+                            <button type="button" class="bg-gray-300 text-gray-700 px-2 py-1"
                                 onclick="decrementAmount({{ $product->id }})">-</button>
                             <input type="number" id="amount-{{ $product->id }}" name="amount"
-                                class="mx-2 border text-center w-16" value="1" min="1">
-                            <button class="bg-gray-300 text-gray-700 px-2 py-1"
+                                class="mx-2 border text-center w-16" value="1" min="1" onchange="updateHiddenAmount({{ $product->id }})">
+                            <button type="button" class="bg-gray-300 text-gray-700 px-2 py-1"
                                 onclick="incrementAmount({{ $product->id }})">+</button>
                         </div>
                         <form action="{{ route('cart.add', ['id' => $product->id]) }}" method="POST">
@@ -49,8 +49,10 @@
             amountInput.value = currentValue + 1;
             document.getElementById('amount-input-' + productId).value = amountInput.value;
         }
-    </script>
-    </body>
 
-    </html>
+        function updateHiddenAmount(productId) {
+            var amountInput = document.getElementById('amount-' + productId);
+            document.getElementById('amount-input-' + productId).value = amountInput.value;
+        }
+    </script>
 @endsection

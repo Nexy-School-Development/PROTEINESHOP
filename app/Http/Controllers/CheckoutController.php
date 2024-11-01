@@ -7,8 +7,14 @@ class CheckoutController extends Controller
 {
     public function process(Request $request)
     {
+        $items = $request->input('items');
         $total = $request->input('total');
 
-        return redirect()->route('checkout')->with('success', 'Payment successful!');
+        return view('checkout', compact('items', 'total'));
+    }
+
+    public function paid(Request $request)
+    {
+        return view('paid');
     }
 }
