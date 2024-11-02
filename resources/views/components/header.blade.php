@@ -112,7 +112,7 @@
             <!-- Cart Icon for Responsive Menu -->
             <div class="pt-2 pb-3 space-y-1">
                 <a href="{{ route('cart') }}">
-                    <img src="{{ asset('../Media/Images/shop.svg') }}" alt="Cart" class="w-6 h-6 bg-white">
+                    <img src="{{ asset('../Media/Images/shop.svg') }}" alt="Cart" class="w-6 h-6 bg-white ">
                 </a>
             </div>
         @endauth
