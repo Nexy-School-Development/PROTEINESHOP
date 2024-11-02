@@ -31,11 +31,11 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Proteine bundle',
             'description' => 'De grooste bundle ter wereld',
             'price' => 13.99,
-            'image' => 'products/proteinebundle.jpg',
+            'image' => 'products/proteinebundle.png',
         ]);
 
         Product::create([
-            'name' => 'Proteine bundle',
+            'name' => 'Proteine bundle2',
             'description' => 'De grooste bundle2 ter wereld',
             'price' => 23.99,
             'image' => 'products/proteineBundle2.png',
@@ -48,12 +48,11 @@ class ProductsTableSeeder extends Seeder
             'image' => 'products/proteinepot.jpg',
         ]);
 
-                
         Product::create([
-            'name' => 'Proteine pot',
+            'name' => 'Proteine pot2',
             'description' => 'De grooste pot ter wereld',
             'price' => 5.99,
-            'image' => 'products/proteinepot2.jpg',
+            'image' => 'products/proteinepot2.webp',
         ]);
 
         Product::create([
@@ -62,40 +61,40 @@ class ProductsTableSeeder extends Seeder
             'price' => 2.99,
             'image' => 'products/proteinereep.jpg',
         ]);
+
         Product::create([
             'name' => 'Proteine reep2',
-            'description' => 'De grooste reep ter wereld',
-            'price' => 1.99,
+            'description' => 'De grooste reep2 ter wereld',
+            'price' => 4.99,
             'image' => 'products/proteinereep2.jpg',
         ]);
 
         Product::create([
             'name' => 'Proteine reep3',
-            'description' => 'De grooste reep ter wereld',
+            'description' => 'De grooste reep3 ter wereld',
             'price' => 7.99,
             'image' => 'products/proteinereep3.jpg',
         ]);
 
         Product::create([
             'name' => 'Proteine reep4',
-            'description' => 'De grooste shake ter wereld',
+            'description' => 'De grooste reep4 ter wereld',
             'price' => 69.99,
             'image' => 'products/proteinereep4.jpg',
         ]);
 
         Product::create([
-            'name' => 'shakebeker',
+            'name' => 'Shakebeker',
             'description' => 'De grooste shakebeker ter wereld',
             'price' => 69.99,
-            'image' => 'products/shakebeker.jpg',
+            'image' => 'products/shakebeker.png',
         ]);
 
         Product::create([
-            'name' => 'shakebeker',
-            'description' => 'De grooste shakebeker ter wereld',
+            'name' => 'Shakebeker2',
+            'description' => 'De grooste shakebeker2 ter wereld',
             'price' => 69.99,
-            'image' => 'products/shakebeker2.jpg',
+            'image' => 'products/shakebeker2.png',
         ]);
-
     }
 }

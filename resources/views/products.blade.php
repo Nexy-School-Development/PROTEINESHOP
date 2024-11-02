@@ -1,6 +1,5 @@
 @extends('components.layout')
 
-<x-header />
 @section('content')
     <div class="container mx-auto p-4">
         <div class="grid grid-cols-3 gap-4">
@@ -34,27 +33,27 @@
             @endforeach
         </div>
     </div>
-
-    <script>
-        function decrementAmount(productId) {
-            var amountInput = document.getElementById('amount-' + productId);
-            var currentValue = parseInt(amountInput.value);
-            if (currentValue > 1) {
-                amountInput.value = currentValue - 1;
-                document.getElementById('amount-input-' + productId).value = amountInput.value;
-            }
-        }
-
-        function incrementAmount(productId) {
-            var amountInput = document.getElementById('amount-' + productId);
-            var currentValue = parseInt(amountInput.value);
-            amountInput.value = currentValue + 1;
-            document.getElementById('amount-input-' + productId).value = amountInput.value;
-        }
-
-        function updateHiddenAmount(productId) {
-            var amountInput = document.getElementById('amount-' + productId);
-            document.getElementById('amount-input-' + productId).value = amountInput.value;
-        }
-    </script>
 @endsection
+
+<script>
+    function decrementAmount(productId) {
+        var amountInput = document.getElementById('amount-' + productId);
+        var currentValue = parseInt(amountInput.value);
+        if (currentValue > 1) {
+            amountInput.value = currentValue - 1;
+            document.getElementById('amount-input-' + productId).value = amountInput.value;
+        }
+    }
+
+    function incrementAmount(productId) {
+        var amountInput = document.getElementById('amount-' + productId);
+        var currentValue = parseInt(amountInput.value);
+        amountInput.value = currentValue + 1;
+        document.getElementById('amount-input-' + productId).value = amountInput.value;
+    }
+
+    function updateHiddenAmount(productId) {
+        var amountInput = document.getElementById('amount-' + productId);
+        document.getElementById('amount-input-' + productId).value = amountInput.value;
+    }
+</script>

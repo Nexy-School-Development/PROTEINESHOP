@@ -10,8 +10,7 @@
             <div class=" sm:rounded-lg">
                 <div class="p-6 font-antonio text-text">
 
-                    <div
-                        class="uppercase text-subtitle p-4 text-xl font-bold flex justify-between items-center">
+                    <div class="uppercase text-subtitle p-4 text-xl font-bold flex justify-between items-center">
                         <a href="products/create">Create a new product</a>
                         <a href="/">Back to the home page</a>
                     </div>
@@ -21,7 +20,7 @@
                         <div class="grid grid-cols-3 gap-4">
                             @foreach ($products as $product)
                                 <div class="border border-black p-4 group">
-                                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
+                                    <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}"
                                         class="w-full h-48 object-cover">
                                     <h2 class="text-xl font-bold">{{ $product->name }}</h2>
                                     <p>{{ $product->description }}</p>

@@ -1,26 +1,14 @@
 <?php
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Http\Request;
 
 class Productcontroller extends Controller
 {
-    public function index()
-    {
-        $products = Product::all();
-        return view('products', compact('products'));
-    }
-
-    public function create()
-    {
-        return view('CRUD.Create');
-    }
-
     public function store(Request $request)
     {
-
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
@@ -30,29 +18,28 @@ class Productcontroller extends Controller
 
         $path = $request->file('image')->store('products', 'public');
 
-        $product = new product();
+        $product = new Product();
         $product->name = $request->input('name');
         $product->description = $request->input('description');
         $product->image = $path;
         $product->price = $request->input('price');
         $product->save();
 
-        return Redirect::to('/dashboard')->with('success', 'product successfully deleted!');
+        return Redirect::to('/dashboard')->with('success', 'Product successfully created!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(product $product)
+    public function show(Product $product)
     {
         //
     }
 
-    public function edit(product $product)
+    public function edit(Product $product)
     {
-        $product = product::find($product->id);
+        $product = Product::find($product->id);
         return view('CRUD.Edit', compact('product'));
-
     }
 
     public function update(Request $request, product $product)
