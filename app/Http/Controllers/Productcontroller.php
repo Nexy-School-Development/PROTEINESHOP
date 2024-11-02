@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 
 class Productcontroller extends Controller
@@ -36,7 +37,7 @@ class Productcontroller extends Controller
         $product->price = $request->input('price');
         $product->save();
 
-        return redirect()->route('/dashboard')->with('success', 'product successfully created!');
+        return Redirect::to('/dashboard')->with('success', 'product successfully deleted!');
     }
 
     /**
@@ -75,7 +76,7 @@ class Productcontroller extends Controller
 
         $product->save();
 
-        return redirect()->route('dashboard')->with('success', 'product successfully updated!');
+        return Redirect::to('/dashboard')->with('success', 'product successfully deleted!');
     }
 
     public function destroy(product $product)
@@ -83,6 +84,6 @@ class Productcontroller extends Controller
         $product = product::find($product->id);
         $product->delete();
 
-        return redirect()->route('dashboard')->with('success', 'product successfully deleted!');
+        return Redirect::to('/dashboard')->with('success', 'product successfully deleted!');
     }
 }

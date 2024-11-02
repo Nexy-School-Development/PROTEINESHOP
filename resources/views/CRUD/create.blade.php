@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="text-7xl uppercase leading-none text-center">Create a new product</h1>
 
-    <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data"
+    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data"
         class=" flex flex-col flex-wrap-reverse content-center w-1/2 mx-auto mt-10 text-text text-xl border-2 rounded-md">
         @csrf
 
