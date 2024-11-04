@@ -7,8 +7,8 @@ class Product extends Model
 {
     protected $fillable = ['name', 'description', 'price', 'image'];
 
-    public function getImageAttribute($value)
-    {
-        return 'data:image/jpeg;base64,' . base64_encode($value);
-    }
+    // public function getImageAttribute($value)
+    // {
+    //     return 'data:image/jpeg;base64,' . base64_encode($value);
+    // }
 }
