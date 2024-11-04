@@ -30,7 +30,7 @@
                 <tbody>
                     @foreach($cart as $id => $item)
                         <tr id="cart-item-{{ $id }}">
-                            <td class="py-2"><img src="{{ $item['image'] }}" alt="{{ $item['name'] }}" class="w-16 h-16 object-cover"></td>
+                            <td class="py-2"><img src="{{ Storage::url($item['image']) }}" alt="{{ $item['name'] }}" class="w-16 h-16 object-cover"></td>
                             <td class="py-2">{{ $item['name'] }}</td>
                             <td class="py-2">${{ $item['price'] }}</td>
                             <td class="py-2" id="quantity-{{ $id }}">{{ $item['quantity'] }}</td>
