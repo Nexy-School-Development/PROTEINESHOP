@@ -49,7 +49,7 @@
                 </tbody>
             </table>
             <div class="flex justify-between items-center">
-                <a href="{{ route('products') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Back to Products</a>
+                <a href="{{ route('products.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Back to Products</a>
                 <form action="{{ route('checkout.process') }}" method="POST">
                     @csrf
                     <input type="hidden" name="total" value="{{ array_sum(array_map(function($item) { return $item['price'] * $item['quantity']; }, $cart)) }}">

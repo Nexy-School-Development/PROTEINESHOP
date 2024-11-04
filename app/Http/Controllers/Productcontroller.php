@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Redirect;
 
 class Productcontroller extends Controller
 {
+    public function index()
+    {
+        $products = Product::all();
+        return view('products', compact('products'));
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([

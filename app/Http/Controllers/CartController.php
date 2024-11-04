@@ -31,7 +31,7 @@ class CartController extends Controller
         }
 
         Session::put('cart', $cart);
-        return redirect()->route('products')->with('success', 'Product added to cart!');
+        return redirect()->route('products.index')->with('success', 'Product added to cart!');
     }
 
     public function update(Request $request)
