@@ -23,6 +23,9 @@ Route::get('/checkout', function () {
     return view('checkout');
 })->name('checkout');
 Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
+Route::post('/checkout/paid', [CheckoutController::class, 'paid'])->name('checkout.paid');
+Route::get('/checkout/paid/view', [CheckoutController::class, 'showPaid'])->name('checkout.paid.view');
+
 Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
 
 Route::post('/paid', [CheckoutController::class, 'paid'])->name('checkout.paid');

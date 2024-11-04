@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
 {
@@ -14,6 +15,13 @@ class CheckoutController extends Controller
     }
 
     public function paid(Request $request)
+    {
+        Session::forget('cart');
+
+        return redirect()->route('checkout.paid.view')->with('success', 'Thank you for your purchase! Your payment has been successfully processed.');
+    }
+
+    public function showPaid()
     {
         return view('paid');
     }
