@@ -6,7 +6,7 @@
             @foreach ($products as $product)
                 <div class="border p-4">
                     <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
-                        class="w-full h-48">
+                        class="w-3/4 h-48">
                     <h2 class="text-xl font-bold">{{ $product->name }}</h2>
                     <p>{{ $product->description }}</p>
                     <p class="text-lg font-semibold">${{ $product->price }}</p>

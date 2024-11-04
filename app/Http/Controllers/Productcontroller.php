@@ -13,6 +13,10 @@ class Productcontroller extends Controller
         return view('products', compact('products'));
     }
 
+    public function create()
+    {
+        return view('CRUD.create');
+    }
     public function store(Request $request)
     {
         $validated = $request->validate([
