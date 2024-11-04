@@ -59,3 +59,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+Route::get('/duurzaamheid', function () {
+    return view('duurzaamheid');
+});
