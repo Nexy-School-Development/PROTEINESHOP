@@ -10,38 +10,40 @@
     <div class="container mx-auto p-4">
         <h1 class="text-2xl font-bold mb-4">Checkout</h1>
         <div class="flex flex-wrap -mx-4">
-            <!-- Cart Form -->
             <div class="w-full lg:w-1/2 px-4 mb-4 lg:mb-0">
-                <form class="space-y-4 max-w-lg mx-auto">
+                <form id="checkout-form" class="space-y-4 max-w-lg mx-auto" action="{{ route('checkout.paid') }}" method="POST">
+                    @csrf
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                        <input type="text" id="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                     </div>
                     <div>
                         <label for="surname" class="block text-sm font-medium text-gray-700">Surname</label>
-                        <input type="text" id="surname" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <input type="text" id="surname" name="surname" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                     </div>
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" id="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                     </div>
                     <div>
                         <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
-                        <input type="text" id="address" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <input type="text" id="address" name="address" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                     </div>
                     <div>
                         <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
-                        <input type="text" id="country" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <input type="text" id="country" name="country" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                     </div>
                     <div>
                         <label for="region" class="block text-sm font-medium text-gray-700">Region</label>
-                        <input type="text" id="region" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <input type="text" id="region" name="region" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                     </div>
                     <div class="mt-4">
                         <a href="{{ route('cart') }}" class="bg-gray-500 text-white px-4 py-2">Back to Cart</a>
                     </div>
+                    <div class="mt-4 text-right">
+                        <button type="submit" class="bg-green-500 text-white px-4 py-2">Pay Products</button>
+                    </div>
                 </form>
-
             </div>
             <div class="w-full lg:w-1/2 px-4">
                 <table class="min-w-full bg-white">
@@ -68,13 +70,6 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="mt-4 text-right">
-                    <form action="{{ route('checkout.paid') }}" method="POST">
-                        @csrf
-
-                        <button type="submit" class="bg-green-500 text-white px-4 py-2">Pay Products</button>
-                    </form>
-                </div>
             </div>
         </div>
     </div>
