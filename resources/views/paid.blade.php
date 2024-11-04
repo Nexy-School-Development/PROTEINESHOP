@@ -11,7 +11,7 @@
         <div class="bg-white p-8 rounded-lg shadow-lg text-center">
             <h1 class="text-2xl font-bold mb-4">Payment Successful</h1>
             <p class="mb-4">Thank you for your purchase! Your payment has been successfully processed.</p>
-            <a href="{{ route('products') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Back to Products</a>
+            <a href="{{ route('products.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Back to Products</a>
         </div>
     </div>
 </body>
