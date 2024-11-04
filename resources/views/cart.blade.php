@@ -64,6 +64,8 @@
             </div>
         @else
             <p>Your cart is empty.</p>
+            <p>ㅤ</p>
+            <a href="{{ route('products.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Back to Products</a>
         @endif
     </div>
 

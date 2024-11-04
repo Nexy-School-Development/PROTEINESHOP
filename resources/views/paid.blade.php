@@ -6,13 +6,11 @@
     <title>Payment Successful</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
-    <div class="flex items-center justify-center min-h-screen">
-        <div class="bg-white p-8 rounded-lg shadow-lg text-center">
-            <h1 class="text-2xl font-bold mb-4">Payment Successful</h1>
-            <p class="mb-4">Thank you for your purchase! Your payment has been successfully processed.</p>
-            <a href="{{ route('products.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Back to Products</a>
-        </div>
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded shadow-md text-center">
+        <h1 class="text-2xl font-bold mb-4">Payment Successful</h1>
+        <p class="mb-4">{{ session('success') }}</p>
+        <a href="{{ route('products.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Continue Shopping</a>
     </div>
 </body>
 </html>
